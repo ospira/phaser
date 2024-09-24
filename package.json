@@ -9,9 +9,6 @@
   "license": "MIT",
   "licenseUrl": "https://www.opensource.org/licenses/mit-license.php",
   "main": "./src/phaser.js",
-  "types": "./types/phaser.d.ts",
-  "browser": "./dist/phaser.js",
-  "module": "./dist/phaser.esm.js",
   "repository": {
     "type": "git",
     "url": "https://phaserjs@github.com/phaserjs/phaser.git"
