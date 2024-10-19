@@ -1,0 +1,1 @@
+../../../types/phaser.d.ts(103093,31): error TS2304: Cannot find name 'const'.

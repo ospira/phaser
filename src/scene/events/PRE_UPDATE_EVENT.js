@@ -23,9 +23,7 @@
  * A Scene will only run its step if it is active.
  *
  * @event Phaser.Scenes.Events#PRE_UPDATE
- * @constant
- * @type {string}
- * @default
+ * @type {const}
  * @since 3.0.0
  *
  * @param {number} time - The current time. Either a High Resolution Timer value if it comes from Request Animation Frame, or Date.now if using SetTimeout.
