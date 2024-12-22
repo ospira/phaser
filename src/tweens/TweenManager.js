@@ -234,7 +234,8 @@ var TweenManager = new Class({
         this.prevTime = this.startTime;
         this.nextTime = this.gap;
 
-        this.events.on(SceneEvents.UPDATE, this.update, this);
+        // this.events.on(SceneEvents.UPDATE, this.update, this);
+        this.events.on(SceneEvents.POST_UPDATE, this.postupdate, this);
         this.events.once(SceneEvents.SHUTDOWN, this.shutdown, this);
     },
 
@@ -696,7 +697,25 @@ var TweenManager = new Class({
      * @method Phaser.Tweens.TweenManager#update
      * @since 3.0.0
      */
-    update: function ()
+    // update: function ()
+    // {
+    //     if (!this.paused)
+    //     {
+    //         this.step(false);
+    //     }
+    // },
+
+    /**
+     * Internal postupdate handler.
+     *
+     * Calls `TweenManager.step` as long as the Tween Manager has not
+     * been paused.
+     *
+     * @method Phaser.Tweens.TweenManager#update
+     * @since 3.?.?
+     */
+
+    postupdate: function ()
     {
         if (!this.paused)
         {
@@ -1127,7 +1146,8 @@ var TweenManager = new Class({
 
         this.tweens = [];
 
-        this.events.off(SceneEvents.UPDATE, this.update, this);
+        // this.events.off(SceneEvents.UPDATE, this.update, this);
+        this.events.off(SceneEvents.POST_UPDATE, this.postupdate, this);
         this.events.off(SceneEvents.SHUTDOWN, this.shutdown, this);
     },
 
