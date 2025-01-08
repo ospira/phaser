@@ -22,7 +22,7 @@ var BuildTilesetIndex = function (mapData)
     var set;
     var tiles = [];
 
-    for (i = 0; i < mapData.imageCollections.length; i++)
+    for (i = 0; i < mapData.imageCollections.length; i++) // imageCollections seems empty tho...
     {
         var collection = mapData.imageCollections[i];
         var images = collection.images;
@@ -53,7 +53,12 @@ var BuildTilesetIndex = function (mapData)
         for (var t = set.firstgid; t < set.firstgid + set.total; t++)
         {
             //  Can add extra properties here as needed
-            tiles[t] = [ x, y, i ];
+            tiles[t] = [ x, y, i ]; // i not used?
+
+            // the rest of this is relatively basic math
+
+            // the actual drawing probably have to move on
+            // to some renderer class...
 
             x += set.tileWidth + set.tileSpacing;
 
