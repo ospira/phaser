@@ -36,10 +36,18 @@ var ParseTilesets = function (json)
             console.warn('External tilesets unsupported. Use Embed Tileset and re-export');
         }
         else if (set.image)
+        // yes
+
+        // confirms set.image isn't actually used, "name" ie key is used, but as u can see
+        // image still should be present
+        // so basically don't alter the tiled export as is
+        // but recognize this works under the expectation the image (under the key in `name`) 
+        // has been preloaded
         {
             var newSet = new Tileset(set.name, set.firstgid, set.tilewidth, set.tileheight, set.margin, set.spacing, undefined, undefined, set.tileoffset);
 
             if (json.version > 1)
+            // yes
             {
                 var datas = undefined;
                 var props = undefined;
@@ -50,6 +58,9 @@ var ParseTilesets = function (json)
                     props = props || {};
 
                     // Tiled 1.2+
+                    
+                    // eslint-disable-next-line
+                    /// note my version is "1.10"
                     for (var t = 0; t < set.tiles.length; t++)
                     {
                         var tile = set.tiles[t];
@@ -182,6 +193,8 @@ var ParseTilesets = function (json)
 
         lastSet = set;
     }
+
+    console.log({ tilesets: tilesets, imageCollections: imageCollections });
 
     return { tilesets: tilesets, imageCollections: imageCollections };
 };
