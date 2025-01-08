@@ -116,7 +116,7 @@ var ParseTileLayers = function (json, insertNull)
 
         var output = [];
         var x = 0;
-
+        // eslint-disable-next-line
         console.log({infiniteMap})
 
         if (infiniteMap)
@@ -269,7 +269,7 @@ var ParseTileLayers = function (json, insertNull)
                 gidInfo = ParseGID(curl.data[k]);
                 
                 // eslint-disable-next-line
-                console.log("parsing orthogonal tile layers", {gidInfo}) // not a lot here...
+                // console.log("parsing orthogonal tile layers", {gidInfo}) // not a lot here...
 
                 //  index, x, y, width, height
                 if (gidInfo.gid > 0)

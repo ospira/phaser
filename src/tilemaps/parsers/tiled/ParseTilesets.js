@@ -58,7 +58,7 @@ var ParseTilesets = function (json)
                     props = props || {};
 
                     // Tiled 1.2+
-                    
+
                     // eslint-disable-next-line
                     /// note my version is "1.10"
                     for (var t = 0; t < set.tiles.length; t++)
@@ -83,10 +83,12 @@ var ParseTilesets = function (json)
                         {
                             (datas[tile.id] || (datas[tile.id] = {})).objectgroup = tile.objectgroup;
 
-                            if (tile.objectgroup.objects)
+                            if (tile.objectgroup.objects) // no
                             {
                                 var parsedObjects2 = tile.objectgroup.objects.map(function (obj)
                                 {
+                                    // eslint-disable-next-line
+                                    console.log("ParseObject(obj)", {obj})
                                     return ParseObject(obj);
                                 });
 
@@ -109,11 +111,12 @@ var ParseTilesets = function (json)
                     }
                 }
 
-                if (Array.isArray(set.wangsets))
+                if (Array.isArray(set.wangsets)) // no
                 {
                     datas = datas || {};
                     props = props || {};
-
+                    // eslint-disable-next-line
+                    console.log("ParseWangsets(set.wangsets, datas)")
                     ParseWangsets(set.wangsets, datas);
                 }
 
