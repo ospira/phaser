@@ -19,7 +19,7 @@ var WebGLPipeline = require('../WebGLPipeline');
  * @classdesc
  * The Multi Pipeline is the core 2D texture rendering pipeline used by Phaser in WebGL.
  * Virtually all Game Objects use this pipeline by default, including Sprites, Graphics
- * and Tilemaps. It handles the batching of quads and tris, as well as methods for
+* and Tilemaps. It handles the batching of quads and tris, as well as methods for
  * drawing and batching geometry data.
  *
  * Prior to Phaser v3.50 this pipeline was called the `TextureTintPipeline`.
@@ -297,6 +297,8 @@ var MultiPipeline = new Class({
      */
     batchSprite: function (gameObject, camera, parentTransformMatrix)
     {
+        // eslint-disable-next-line 
+        // console.log('batchSprite()', {gameObject, camera, parentTransformMatrix})
         this.manager.set(this, gameObject);
 
         var camMatrix = this._tempMatrix1;
@@ -484,6 +486,14 @@ var MultiPipeline = new Class({
         textureUnit,
         skipPrePost)
     {
+        // eslint-disable-next-line 
+        //console.log('batchTexture()', {gameObject} /* = *** TilemapLayer *** */)
+        /* note TilemapLayer extends GameObject (as opposed to Tilemap or Tileset) */
+
+
+        // console.log({skipPrePost}) = true (for default TilemapLayer anyway)
+
+
         if (skipPrePost === undefined) { skipPrePost = false; }
 
         this.manager.set(this, gameObject);
