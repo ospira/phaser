@@ -399,6 +399,7 @@ var RenderTexture = new Class({
      */
     draw: function (entries, x, y, alpha, tint)
     {
+        console.log('draw()', this.texture);
         this.texture.draw(entries, x, y, alpha, tint);
 
         return this;

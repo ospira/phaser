@@ -210,6 +210,8 @@ var WebGLTextureWrapper = new Class({
      */
     createResource: function ()
     {
+
+        console.log('WebGLTextureWrapper', this);
         var gl = this.gl;
 
         if (gl.isContextLost())

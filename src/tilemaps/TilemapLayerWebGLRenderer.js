@@ -21,6 +21,9 @@ var Utils = require('../renderer/webgl/Utils');
  */
 var TilemapLayerWebGLRenderer = function (renderer, src, camera)
 {
+    // eslint-disable-next-line
+    console.log({renderer, src, camera})
+    throw 'whoops';
     var renderTiles = src.cull(camera);
 
     var tileCount = renderTiles.length;
@@ -84,7 +87,8 @@ var TilemapLayerWebGLRenderer = function (renderer, src, camera)
         var tOffsetY = tileset.tileOffset.y;
 
         var tint = getTint(tile.tint, alpha * tile.alpha);
-
+        
+        // ***
         pipeline.batchTexture(
             src,
             texture,
