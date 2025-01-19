@@ -486,6 +486,9 @@ var MultiPipeline = new Class({
         textureUnit,
         skipPrePost)
     {
+        // console.log('batchTexture()', {gameObject, frameX, frameY})
+        // eslint-disable-next-line 
+        // throw 'whoops'
         // eslint-disable-next-line 
         //console.log('batchTexture()', {gameObject} /* = *** TilemapLayer *** */)
         /* note TilemapLayer extends GameObject (as opposed to Tilemap or Tileset) */
@@ -606,7 +609,14 @@ var MultiPipeline = new Class({
             this.manager.preBatch(gameObject);
         }
 
-        this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, textureUnit);
+        if (Math.random() > 0.5)
+        {
+            this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, textureUnit);
+        }
+        else
+        {
+            return;
+        }
 
         if (gameObject && !skipPrePost)
         {
