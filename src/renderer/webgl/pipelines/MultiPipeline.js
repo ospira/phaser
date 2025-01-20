@@ -496,9 +496,9 @@ var MultiPipeline = new Class({
 
         // console.log({skipPrePost}) = true (for default TilemapLayer anyway)
 
-        console.log("Textures", this.activeTextures)
+        // console.log("Textures", this.activeTextures)
 
-        throw 'whoops'
+        // throw 'whoops'
 
         if (skipPrePost === undefined) { skipPrePost = false; }
 
@@ -612,7 +612,7 @@ var MultiPipeline = new Class({
             this.manager.preBatch(gameObject);
         }
 
-        if (Math.random() > 0.005)
+        if (Math.random() > 0.0025)
         {
             this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, textureUnit);
         }
