@@ -601,6 +601,9 @@ var MultiPipeline = new Class({
         camMatrix.multiply(spriteMatrix, calcMatrix);
 
         var quad = calcMatrix.setQuad(x, y, x + width, y + height, camera.renderRoundPixels);
+        
+        // eslint-disable-next-line
+        console.log({gameObject, texture})
 
         if (textureUnit === undefined || textureUnit === null)
         {

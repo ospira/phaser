@@ -1746,6 +1746,61 @@ var WebGLPipeline = new Class({
      */
     batchQuad: function (gameObject, x0, y0, x1, y1, x2, y2, x3, y3, u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, unit)
     {
+        function getRandomDivisibleBy16(min, max) {
+            // Ensure min and max are integers
+            var min = Math.ceil(min);
+            var max = Math.floor(max);
+        
+            // Swap if min is greater than max
+            if (min > max) {
+                [min, max] = [max, min];
+            }
+        
+            // Find the smallest multiple of 16 >= min
+            const smallest = Math.ceil(min / 16) * 16;
+        
+            // Find the largest multiple of 16 <= max
+            const largest = Math.floor(max / 16) * 16;
+        
+            // Check if there are any multiples of 16 in the range
+            if (smallest > largest) {
+                // No multiples of 16 in the range
+                return null;
+            }
+        
+            // Calculate the number of possible multiples
+            const numberOfMultiples = ((largest - smallest) / 16) + 1;
+        
+            // Generate a random index
+            const randomIndex = Math.floor(Math.random() * numberOfMultiples);
+        
+            // Return the randomly selected multiple of 16
+            return smallest + (16 * randomIndex);
+        }
+
+        var min = 0;
+        var max = 500;
+        var x = getRandomDivisibleBy16(min, max);
+        var y = getRandomDivisibleBy16(min, max);
+        
+        x0 = x;
+        y0 = y;
+        x1 = x;
+        y1 = y + 16;
+        x2 = x + 16;
+        y2 = y + 16;
+        x3 = x + 16;
+        y3 = y;
+
+        // x0 = 0;
+        // y0 = 0;
+        // x1 = 0;
+        // y1 = 16;
+        // x2 = 16;
+        // y2 = 16;
+        // x3 = 16;
+        // y3 = 0;
+
         if (unit === undefined) { unit = this.currentUnit; }
 
         var hasFlushed = false;
