@@ -22,9 +22,10 @@ var Utils = require('../renderer/webgl/Utils');
 var TilemapLayerWebGLRenderer = function (renderer, src, camera)
 {
     // eslint-disable-next-line
-    console.log({renderer, src, camera})
+    console.log({renderer, src, camera}) // renderer here is the same as systems get in prerender/render
     var renderTiles = src.cull(camera);
 
+    // eslint-disable-next-line
     console.log({renderTiles}) // Array of Tile(s) that are in camera view
 
     var tileCount = renderTiles.length;
@@ -38,7 +39,8 @@ var TilemapLayerWebGLRenderer = function (renderer, src, camera)
     var gidMap = src.gidMap;
     var pipeline = renderer.pipelines.set(src.pipeline, src);
 
-    console.log({gidMap, src, pipeline}) // gidMap = array of Tileset references from Tiles (so mostly the same reference repeated many times)
+    // eslint-disable-next-line
+    console.log({gidMap, pipeline}) // gidMap = array of Tileset references from Tiles (so mostly the same reference repeated many times)
 
     var getTint = Utils.getTintAppendFloatAlpha;
 
@@ -80,11 +82,11 @@ var TilemapLayerWebGLRenderer = function (renderer, src, camera)
 
         var texture = tileset.glTexture;
 
-        console.log({texture})
+        // console.log({texture})
 
         var textureUnit = pipeline.setTexture2D(texture, src);
 
-        console.log({textureUnit})
+        // console.log({textureUnit})
 
         var frameWidth = tileWidth;
         var frameHeight = tileHeight;
