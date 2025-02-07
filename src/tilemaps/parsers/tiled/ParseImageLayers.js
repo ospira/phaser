@@ -46,7 +46,7 @@ var ParseImageLayers = function (json)
         // Get current layer and advance iterator
         var curi = curGroupState.layers[curGroupState.i];
         curGroupState.i++;
-
+        console.log({curi})
         if (curi.type !== 'imagelayer')
         {
             if (curi.type === 'group')
@@ -75,7 +75,7 @@ var ParseImageLayers = function (json)
             properties: GetFastValue(curi, 'properties', {})
         });
     }
-
+    console.log({images})
     return images;
 };
 

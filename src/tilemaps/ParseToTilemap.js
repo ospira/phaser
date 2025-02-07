@@ -45,9 +45,11 @@ var ParseToTilemap = function (scene, key, tileWidth, tileHeight, width, height,
 
     var mapData = null;
 
-    if (Array.isArray(data))
+    if (Array.isArray(data)) // no
     {
         var name = key !== undefined ? key : 'map';
+        // eslint-disable-next-line
+        // console.log("confirm are running Parse() on next line")
         mapData = Parse(name, Formats.ARRAY_2D, data, tileWidth, tileHeight, insertNull);
     }
     else if (key !== undefined)
@@ -58,8 +60,10 @@ var ParseToTilemap = function (scene, key, tileWidth, tileHeight, width, height,
         {
             console.warn('No map data found for key ' + key);
         }
-        else
+        else // yes!
         {
+            // eslint-disable-next-line
+            console.log("confirm are running Parse() on next line")
             mapData = Parse(key, tilemapData.format, tilemapData.data, tileWidth, tileHeight, insertNull);
         }
     }

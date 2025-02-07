@@ -531,7 +531,7 @@ var Tilemap = new Class({
         if (index !== null)
         {
             console.warn('Invalid Tilemap Layer ID: ' + name);
-            return null;
+            // return null;
         }
 
         var layerData = new LayerData({
