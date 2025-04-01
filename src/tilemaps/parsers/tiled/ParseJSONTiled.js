@@ -37,6 +37,8 @@ var ParseJSONTiled = function (name, source, insertNull)
 {
     var json = DeepCopy(source);
 
+    // console.log({name, source, insertNull})
+
     //  Map data will consist of: layers, objects, images, tilesets, sizes
     var mapData = new MapData({
         width: json.width,
@@ -71,11 +73,13 @@ var ParseJSONTiled = function (name, source, insertNull)
             mapData.heightInPixels = mapData.tileHeight * (mapData.height + 0.5);
         }
     }
+    // eslint-disable-next-line
+    console.log({mapData})
 
-    mapData.layers = ParseTileLayers(json, insertNull);
-    mapData.images = ParseImageLayers(json);
+    mapData.layers = ParseTileLayers(json, insertNull); // ✅
+    mapData.images = ParseImageLayers(json); // ✅
 
-    var sets = ParseTilesets(json);
+    var sets = ParseTilesets(json); // ✅
 
     mapData.tilesets = sets.tilesets;
     mapData.imageCollections = sets.imageCollections;
@@ -85,6 +89,8 @@ var ParseJSONTiled = function (name, source, insertNull)
     mapData.tiles = BuildTilesetIndex(mapData);
 
     AssignTileProperties(mapData);
+    // eslint-disable-next-line
+    console.log({mapData})
 
     return mapData;
 };

@@ -116,6 +116,8 @@ var ParseTileLayers = function (json, insertNull)
 
         var output = [];
         var x = 0;
+        // eslint-disable-next-line
+        console.log({infiniteMap})
 
         if (infiniteMap)
         {
@@ -253,9 +255,21 @@ var ParseTileLayers = function (json, insertNull)
             var row = [];
 
             //  Loop through the data field in the JSON.
+
+            // eslint-disable-next-line
+            /// here ("orthogonal")
+
+            // eslint-disable-next-line
+            /// remember a layer is just really an array of "data", which is only meaingful
+            // in context with the tileset (that which the data points to as an index in the tilesets... 
+            // ... array of tiles)
+
             for (var k = 0, len = curl.data.length; k < len; k++)
             {
                 gidInfo = ParseGID(curl.data[k]);
+                
+                // eslint-disable-next-line
+                // console.log("parsing orthogonal tile layers", {gidInfo}) // not a lot here...
 
                 //  index, x, y, width, height
                 if (gidInfo.gid > 0)
