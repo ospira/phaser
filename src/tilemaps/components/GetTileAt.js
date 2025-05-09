@@ -23,7 +23,7 @@ var GetTileAt = function (tileX, tileY, nonNull, layer)
 {
     if (IsInLayerBounds(tileX, tileY, layer))
     {
-        var tile = layer.data[tileY][tileX] || null;
+        var tile = layer.data[tileY] && layer.data[tileY][tileX] || null;
 
         if (!tile)
         {

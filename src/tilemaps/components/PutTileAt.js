@@ -36,13 +36,15 @@ var PutTileAt = function (tile, tileX, tileY, recalculateFaces, layer)
     }
 
     var index;
-    var oldTile = layer.data[tileY][tileX];
+    var oldTile = layer.data[tileY] ? layer.data[tileY][tileX] : null;
     var oldTileCollides = oldTile && oldTile.collides;
 
     if (tile instanceof Tile)
     {
-        if (layer.data[tileY][tileX] === null)
+        console.log({layer})
+        if (!layer.data[tileY] || !layer.data[tileY][tileX])
         {
+            layer.data[tileY] = [];
             layer.data[tileY][tileX] = new Tile(layer, tile.index, tileX, tileY, layer.tileWidth, layer.tileHeight);
         }
 

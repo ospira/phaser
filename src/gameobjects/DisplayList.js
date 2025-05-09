@@ -189,6 +189,8 @@ var DisplayList = new Class({
         {
             StableSort(this.list, this.sortByDepth);
 
+            console.log("DEPTHSORT YES", this);
+
             this.sortChildrenFlag = false;
         }
     },

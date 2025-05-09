@@ -520,6 +520,7 @@ var DynamicTexture = new Class({
      */
     stamp: function (key, frame, x, y, config)
     {
+        console.log('stamp()', key, frame, x, y, config);
         if (x === undefined) { x = 0; }
         if (y === undefined) { y = 0; }
 

@@ -5,7 +5,7 @@
  */
 
 var GameObjectCreator = require('../gameobjects/GameObjectCreator');
-var ParseToTilemap = require('./ParseToTilemap');
+var ParseToTilemap = require('./ParseToTilemap'); // ✅
 
 /**
  * Creates a Tilemap from the given key or data, or creates a blank Tilemap if no key/data provided.

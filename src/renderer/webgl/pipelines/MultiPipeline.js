@@ -19,7 +19,7 @@ var WebGLPipeline = require('../WebGLPipeline');
  * @classdesc
  * The Multi Pipeline is the core 2D texture rendering pipeline used by Phaser in WebGL.
  * Virtually all Game Objects use this pipeline by default, including Sprites, Graphics
- * and Tilemaps. It handles the batching of quads and tris, as well as methods for
+* and Tilemaps. It handles the batching of quads and tris, as well as methods for
  * drawing and batching geometry data.
  *
  * Prior to Phaser v3.50 this pipeline was called the `TextureTintPipeline`.
@@ -297,6 +297,8 @@ var MultiPipeline = new Class({
      */
     batchSprite: function (gameObject, camera, parentTransformMatrix)
     {
+        // eslint-disable-next-line 
+        // console.log('batchSprite()', {gameObject, camera, parentTransformMatrix})
         this.manager.set(this, gameObject);
 
         var camMatrix = this._tempMatrix1;
@@ -484,6 +486,20 @@ var MultiPipeline = new Class({
         textureUnit,
         skipPrePost)
     {
+        // console.log('batchTexture()', {gameObject, frameX, frameY})
+        // eslint-disable-next-line 
+        // throw 'whoops'
+        // eslint-disable-next-line 
+        //console.log('batchTexture()', {gameObject} /* = *** TilemapLayer *** */)
+        /* note TilemapLayer extends GameObject (as opposed to Tilemap or Tileset) */
+
+
+        // console.log({skipPrePost}) = true (for default TilemapLayer anyway)
+
+        // console.log("Textures", this.activeTextures)
+
+        // throw 'whoops'
+
         if (skipPrePost === undefined) { skipPrePost = false; }
 
         this.manager.set(this, gameObject);
@@ -596,7 +612,14 @@ var MultiPipeline = new Class({
             this.manager.preBatch(gameObject);
         }
 
-        this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, textureUnit);
+        if (Math.random() > 0.0025)
+        {
+            this.batchQuad(gameObject, quad[0], quad[1], quad[2], quad[3], quad[4], quad[5], quad[6], quad[7], u0, v0, u1, v1, tintTL, tintTR, tintBL, tintBR, tintEffect, texture, textureUnit);
+        }
+        else
+        {
+            return;
+        }
 
         if (gameObject && !skipPrePost)
         {
