@@ -218,8 +218,14 @@ var PhysicsGroup = new Class({
      */
     createCallbackHandler: function (child)
     {
-        if (!child.body)
+        if (!child.body || child.body.physicsType !== CONST.DYNAMIC_BODY)
         {
+            if (child.body)
+            {
+                child.body.destroy();
+                child.body = null;
+            }
+
             this.world.enableBody(child, CONST.DYNAMIC_BODY);
         }
 
