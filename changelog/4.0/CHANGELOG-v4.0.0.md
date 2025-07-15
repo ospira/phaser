@@ -55,6 +55,8 @@ Other changes include the following:
 * `Geom.Triangle.getPoint`, `getPoints` and `getRandomPoint` now all return Vector2 objects instead of Point.
 * The functions `Geom.Triangle.Centroid`, `Triangle.CircumCenter`, `Triangle.ContainsArray`, `Triangle.ContainsPoint`, `Triangle.GetPoint`, `Triangle.GetPoints`, `Triangle.InCenter`, `Triangle.Random` and `Triangle.RotateAroundPoint` all now take and in some cases return Vector2 instances instead of Point objects.
 * `DynamicTexture` and `RenderTexture` must call `render()` to actually draw.
+* `PhysicsGroup.add` and `StaticPhysicsGroup.add` will now check to see if the incoming child already has a body of the wrong type, and if so, will destroy it so the new correct type can be assigned. Fix #7179 (thanks @bvanderdrift)
+
 
 v4.0.0 Beta 2 Updates:
 
