@@ -33,8 +33,11 @@ var FilterBlocky = new Class({
     {
         var programManager = this.programManager;
 
+        var sizeX = Math.max(1, controller.size.x);
+        var sizeY = Math.max(1, controller.size.y);
+
         programManager.setUniform('resolution', [ drawingContext.width, drawingContext.height ]);
-        programManager.setUniform('uSizeAndOffset', [ controller.size.x, controller.size.y, controller.offset.x, controller.offset.y ]);
+        programManager.setUniform('uSizeAndOffset', [ sizeX, sizeY, controller.offset.x, controller.offset.y ]);
     }
 
 });

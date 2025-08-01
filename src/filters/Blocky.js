@@ -56,6 +56,8 @@ var Blocky = new Class({
 
         /**
          * The size of the blocks.
+         * You can set the x and y values to any numbers,
+         * but the filter will limit them to a minimum of 1.
          *
          * @name Phaser.Filters.Blocky#size
          * @type {Phaser.Types.Math.Vector2Like}
@@ -82,7 +84,7 @@ var Blocky = new Class({
 
         if (config)
         {
-            if (config.size)
+            if (config.size !== undefined)
             {
                 if (typeof config.size === 'number')
                 {
@@ -96,7 +98,7 @@ var Blocky = new Class({
                 }
             }
 
-            if (config.offset)
+            if (config.offset !== undefined)
             {
                 if (typeof config.offset === 'number')
                 {
