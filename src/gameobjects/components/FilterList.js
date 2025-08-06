@@ -456,17 +456,19 @@ var FilterList = new Class({
      * @param {boolean} [invert=false] - Whether to invert the mask.
      * @param {Phaser.Cameras.Scene2D.Camera} [viewCamera] - The Camera to use when rendering the mask with a GameObject. If not specified, uses the scene's `main` camera.
      * @param {'local'|'world'} [viewTransform='world'] - The transform to use when rendering the mask with a GameObject. 'local' uses the GameObject's own properties. 'world' uses the GameObject's `parentContainer` value to compute a world position.
+     * @param {number} [scaleFactor=1] - The scale factor to apply to the underlying mask texture. Can be used to balance memory usage and needed mask precision. This just adjusts the size of the texture; you must also adjust mask size to match, e.g. if scaleFactor is 0.5, your mask might be a Container with scale 0.5. It's easy to make things complicated when combining scale factor, object transform, and camera transform, so try to be precise when using this option.
      *
      * @return {Phaser.Filters.Mask} The new Mask filter controller.
      */
-    addMask: function (mask, invert, viewCamera, viewTransform)
+    addMask: function (mask, invert, viewCamera, viewTransform, scaleFactor)
     {
         return this.add(new Mask(
             this.camera,
             mask,
             invert,
             viewCamera,
-            viewTransform
+            viewTransform,
+            scaleFactor
         ));
     },
 
