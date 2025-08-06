@@ -47,7 +47,7 @@
  * @property {boolean} [skipUnreadyShaders=false] - Avert stuttering during shader compilation, by enabling parallel shader compilation, where supported. Objects which request a shader that is not yet ready will not be drawn. This prevents stutter, but may cause "pop-in" of objects unless you use a pre-touch strategy.
  * @property {boolean} [failIfMajorPerformanceCaveat=false] - Let the browser abort creating a WebGL context if it judges performance would be unacceptable.
  * @property {string} [powerPreference='default'] - "high-performance", "low-power" or "default". A hint to the browser on how much device power the game might use.
- * @property {number} [batchSize=4096] - The default WebGL batch size. Represents the number of _quads_ that can be added to a single batch.
+ * @property {number} [batchSize=16384] - The default WebGL batch size. Represents the number of _quads_ that can be added to a single batch.
  * @property {number} [maxLights=10] - The maximum number of lights allowed to be visible within range of a single Camera in the LightManager.
  * @property {number} [maxTextures=-1] - When in WebGL mode, this sets the maximum number of GPU Textures to use. The default, -1, will use all available units. The WebGL1 spec says all browsers should provide a minimum of 8.
  * @property {string} [mipmapFilter='LINEAR'] - The mipmap magFilter to be used when creating WebGL textures.

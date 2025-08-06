@@ -133,8 +133,9 @@ var DrawingContextPool = new Class({
         var renderer = this.renderer;
         if (width === undefined) { width = renderer.width; }
         if (height === undefined) { height = renderer.height; }
-        if (width > 4096) { width = 4096; }
-        if (height > 4096) { height = 4096; }
+        var maxTextureSize = renderer.getMaxTextureSize();
+        if (width > maxTextureSize) { width = maxTextureSize; }
+        if (height > maxTextureSize) { height = maxTextureSize; }
 
         // Seek a DrawingContext of the given size.
 

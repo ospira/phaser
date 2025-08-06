@@ -112,7 +112,7 @@ if (typeof WEBGL_RENDERER)
         /**
          * The maximum size of the base filter texture.
          * Filters may use a larger texture after the base texture is rendered.
-         * The maximum texture size is 4096 in WebGL.
+         * The maximum texture size is at least 4096 in WebGL, based on the hardware.
          * You may set this lower to save memory or prevent resizing.
          *
          * @name Phaser.GameObjects.Components.Filters#maxFilterSize
@@ -258,7 +258,8 @@ if (typeof WEBGL_RENDERER)
 
             if (!this.maxFilterSize)
             {
-                this.maxFilterSize = new Vector2(4096, 4096);
+                var maxTextureSize = scene.renderer.getMaxTextureSize();
+                this.maxFilterSize = new Vector2(maxTextureSize, maxTextureSize);
             }
 
             this._filtersMatrix = new TransformMatrix();
@@ -375,7 +376,7 @@ if (typeof WEBGL_RENDERER)
                         gameObject.scaleY * flipY
                     );
                 }
-    
+
                 // Offset origin.
                 var width = filterCamera.width;
                 var height = filterCamera.height;
